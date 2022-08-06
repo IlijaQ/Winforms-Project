@@ -90,6 +90,7 @@ namespace Project
             this.btn_saveAs.TabIndex = 4;
             this.btn_saveAs.Text = "save as";
             this.btn_saveAs.UseVisualStyleBackColor = true;
+            this.btn_saveAs.Click += new System.EventHandler(this.btn_saveAs_Click);
             // 
             // lbl_descriptiveLabel_serverName
             // 
@@ -171,6 +172,7 @@ namespace Project
             this.txtBox_parameters.Name = "txtBox_parameters";
             this.txtBox_parameters.Size = new System.Drawing.Size(220, 113);
             this.txtBox_parameters.TabIndex = 14;
+            this.txtBox_parameters.Text = "Creation date: today\r\nClient Company: Example inc\r\nTarget finish date:";
             // 
             // Form1
             // 
