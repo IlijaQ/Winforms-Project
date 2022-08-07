@@ -45,6 +45,7 @@ namespace Project
             this.txtBox_pass = new System.Windows.Forms.TextBox();
             this.txtBox_parameters = new System.Windows.Forms.TextBox();
             this.lbl_passStrength = new System.Windows.Forms.Label();
+            this.btn_setDefaultVal = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_CreateNewFile
@@ -201,11 +202,22 @@ namespace Project
             this.lbl_passStrength.Size = new System.Drawing.Size(0, 17);
             this.lbl_passStrength.TabIndex = 15;
             // 
+            // btn_setDefaultVal
+            // 
+            this.btn_setDefaultVal.Location = new System.Drawing.Point(555, 15);
+            this.btn_setDefaultVal.Name = "btn_setDefaultVal";
+            this.btn_setDefaultVal.Size = new System.Drawing.Size(150, 28);
+            this.btn_setDefaultVal.TabIndex = 16;
+            this.btn_setDefaultVal.Text = "set default values";
+            this.btn_setDefaultVal.UseVisualStyleBackColor = true;
+            this.btn_setDefaultVal.Click += new System.EventHandler(this.btn_setDefaultVal_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1525, 539);
+            this.Controls.Add(this.btn_setDefaultVal);
             this.Controls.Add(this.lbl_passStrength);
             this.Controls.Add(this.txtBox_parameters);
             this.Controls.Add(this.txtBox_pass);
@@ -248,6 +260,7 @@ namespace Project
         private System.Windows.Forms.TextBox txtBox_pass;
         private System.Windows.Forms.TextBox txtBox_parameters;
         private System.Windows.Forms.Label lbl_passStrength;
+        private System.Windows.Forms.Button btn_setDefaultVal;
     }
 }
 

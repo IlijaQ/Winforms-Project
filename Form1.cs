@@ -17,31 +17,39 @@ namespace Project
         {
             InitializeComponent();
 
-            txtBox_parameters.Text = $"Creation date: {DateTime.Now.ToString("dd.MM.yyyy")}\r\nClient Company:\r\nTarget finish date:";
+            SetDefaultValues();
 
         }
 
 
-        string[] contents;
         string openedFilePath;
 
         
 
         private void btn_saveAs_Click(object sender, EventArgs e)
-        {   //container for parameters to be saved
-            contents = new string[] { txtBox_serverName.Text, txtBox_DBname.Text, txtBox_user.Text, txtBox_pass.Text, txtBox_parameters.Text  };
+        {
+            SaveAs();
+        }
+
+        private void SaveAs()
+        {
+            //container for parameters to be saved
+            string[] contents = new string[] { txtBox_serverName.Text, txtBox_DBname.Text, txtBox_user.Text, txtBox_pass.Text, txtBox_parameters.Text };
             
+
             //enabling save file dialog in wich user determins where to save file
 
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*"; //makes .txt default file format
-            string sfdName = saveFileDialog1.FileName;
+            
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {   //actions that happens if user enters a new file name and clicks "OK"
 
                 File.WriteAllLines(Path.GetFullPath(saveFileDialog1.FileName), contents); //saves file where each array member - parametar is saved in serate line in .txt file
-                MessageBox.Show("Project saved");
+                openedFilePath = Path.GetFullPath(saveFileDialog1.FileName);
+                MessageBox.Show("Project saved");                
             }
+            
         }
 
         private void btn_openFile_Click(object sender, EventArgs e)
@@ -55,44 +63,51 @@ namespace Project
                 //creates a new string array - each line in .txt is an array item
                 string[] loadedLines = File.ReadAllLines(openFileDialog1.FileName);
 
+                PopulateUiFromLoadeFile(loadedLines);
 
-                //populates the following text boxes
-                txtBox_serverName.Text = loadedLines[0];
-                txtBox_DBname.Text = loadedLines[1];
-                txtBox_user.Text = loadedLines[2];
-                txtBox_pass.Text = loadedLines[3];
-
-                txtBox_parameters.Text = ""; //erases default tex in parameters text box
-
-                for (int i = 4; i < loadedLines.Length; i++) //adds new line in last textbox for every item from position 4 to the end of the array
-                {
-                    
-                    txtBox_parameters.Text = txtBox_parameters.Text + loadedLines[i];
-                    if (i < loadedLines.Length - 1) //prevents adding an empty line at the end of textbox content
-                    {
-                        txtBox_parameters.Text = txtBox_parameters.Text + "\r\n";
-                    }
-                }
-
-                
             }
-            
 
+
+        }
+
+        private void PopulateUiFromLoadeFile(string[] loadedLines)
+        {
+            //populates the following text boxes
+            txtBox_serverName.Text = loadedLines[0];
+            txtBox_DBname.Text = loadedLines[1];
+            txtBox_user.Text = loadedLines[2];
+            txtBox_pass.Text = loadedLines[3];
+
+            txtBox_parameters.Text = ""; //erases default text in parameters text box
+
+            for (int i = 4; i < loadedLines.Length; i++) //adds new line in last textbox for every item from position 4 to the end of the array
+            {
+
+                txtBox_parameters.Text = txtBox_parameters.Text + loadedLines[i];
+                if (i < loadedLines.Length - 1) //prevents adding an empty line at the end of textbox content
+                {
+                    txtBox_parameters.Text = txtBox_parameters.Text + "\r\n";
+                }
+            }
         }
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(openedFilePath))
+            if (!string.IsNullOrEmpty(openedFilePath))
             {
-                //btn_saveAs_Click();
+                string[] contents = new string[] { txtBox_serverName.Text, txtBox_DBname.Text, txtBox_user.Text, txtBox_pass.Text, txtBox_parameters.Text };
+                File.WriteAllLines(openedFilePath, contents);
+                MessageBox.Show("Changes saved");
+            }
+            else
+            {
+                SaveAs();
             }
 
-            contents = new string[] { txtBox_serverName.Text, txtBox_DBname.Text, txtBox_user.Text, txtBox_pass.Text, txtBox_parameters.Text };
-            File.WriteAllLines(openedFilePath, contents);
-            MessageBox.Show("Changes saved");
+
         }
 
-        ///////////////
+        #region Password strength
         private void txtBox_pass_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtBox_pass.Text))
@@ -155,25 +170,35 @@ namespace Project
 
             switch (strength)
             {   //suggestive messages for user, depending on current password strength
-                case 0: return "your password is poor strength"; break;
-                case 1: return "your password is bad strength"; break;
-                case 2: return "your password is low strength"; break;
-                case 3: return "your password is medium strength"; break;
-                case 4: return "your password is strong"; break;
-                case 5: return "your password is very strong";break;
-                default: return ""; break;
+                case 0: return "your password is poor strength";
+                case 1: return "your password is bad strength";
+                case 2: return "your password is low strength";
+                case 3: return "your password is medium strength";
+                case 4: return "your password is strong";
+                case 5: return "your password is very strong";
+                default: return "";
             }
 
         }
+        #endregion
 
         private void btn_CreateNewFile_Click(object sender, EventArgs e)
         {
-            txtBox_serverName.Text = "";
-            txtBox_DBname.Text = "";
-            txtBox_user.Text = "";
-            txtBox_pass.Text = "";
-            txtBox_parameters.Text = $"Creation date: {DateTime.Now.ToString("dd.MM.yyyy")}\r\nClient Company:\r\nTarget finish date:";
+            SetDefaultValues();
+        }
+
+        private void SetDefaultValues()
+        {
+            string[] loadedLines = File.ReadAllLines("DefaultValues.txt");
+            PopulateUiFromLoadeFile(loadedLines);
+        }
+
+        private void btn_setDefaultVal_Click(object sender, EventArgs e)
+        {
+            string[] contents = new string[] { txtBox_serverName.Text, txtBox_DBname.Text, txtBox_user.Text, txtBox_pass.Text, txtBox_parameters.Text };
+            File.WriteAllLines("DefaultValues.txt", contents); //saves deault values
             
+            MessageBox.Show("Default values set");
         }
     }
 
