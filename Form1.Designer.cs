@@ -66,6 +66,7 @@ namespace Project
             this.btn_openFile.TabIndex = 1;
             this.btn_openFile.Text = "open";
             this.btn_openFile.UseVisualStyleBackColor = true;
+            this.btn_openFile.Click += new System.EventHandler(this.btn_openFile_Click);
             // 
             // btn_showResent
             // 
