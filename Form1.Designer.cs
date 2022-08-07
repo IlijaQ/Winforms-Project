@@ -56,6 +56,7 @@ namespace Project
             this.btn_CreateNewFile.TabIndex = 0;
             this.btn_CreateNewFile.Text = "new";
             this.btn_CreateNewFile.UseVisualStyleBackColor = true;
+            this.btn_CreateNewFile.Click += new System.EventHandler(this.btn_CreateNewFile_Click);
             // 
             // btn_openFile
             // 
@@ -191,7 +192,7 @@ namespace Project
             this.txtBox_parameters.Name = "txtBox_parameters";
             this.txtBox_parameters.Size = new System.Drawing.Size(292, 138);
             this.txtBox_parameters.TabIndex = 14;
-            this.txtBox_parameters.Text = "Creation date: today\r\nClient Company: Example inc\r\nTarget finish date:";
+            this.txtBox_parameters.Text = "Creation date:\r\nClient Company: Example inc\r\nTarget finish date:";
             // 
             // lbl_passStrength
             // 

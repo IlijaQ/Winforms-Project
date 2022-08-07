@@ -21,6 +21,8 @@ namespace Project
         string[] contents;
         string openedFilePath;
 
+        
+
         private void btn_saveAs_Click(object sender, EventArgs e)
         {   //container for parameters to be saved
             contents = new string[] { txtBox_serverName.Text, txtBox_DBname.Text, txtBox_user.Text, txtBox_pass.Text, txtBox_parameters.Text  };
@@ -62,14 +64,13 @@ namespace Project
                 {
                     
                     txtBox_parameters.Text = txtBox_parameters.Text + loadedLines[i];
-                    if (i < loadedLines.Length - 1)
+                    if (i < loadedLines.Length - 1) //prevents adding an empty line at the end of textbox content
                     {
                         txtBox_parameters.Text = txtBox_parameters.Text + "\r\n";
                     }
                 }
 
                 
-
             }
             
 
@@ -77,6 +78,11 @@ namespace Project
 
         private void btn_save_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(openedFilePath))
+            {
+                //btn_saveAs_Click();
+            }
+
             contents = new string[] { txtBox_serverName.Text, txtBox_DBname.Text, txtBox_user.Text, txtBox_pass.Text, txtBox_parameters.Text };
             File.WriteAllLines(openedFilePath, contents);
             MessageBox.Show("Changes saved");
@@ -85,13 +91,23 @@ namespace Project
         ///////////////
         private void txtBox_pass_TextChanged(object sender, EventArgs e)
         {
-            lbl_passStrength.Text = CheckPassword(txtBox_pass.Text);
+            if (string.IsNullOrEmpty(txtBox_pass.Text))
+            {
+                lbl_passStrength.Text = "";
+            }
+            else
+            {
+                lbl_passStrength.Text = CheckPassword(txtBox_pass.Text);
+            }
+            
         }
 
         public static string CheckPassword(string password)
         {
             //checks if password has upper/lowercase, number, symbol and at least 8 characters
             //grants strength point for each condition met
+
+            
             int strength = 0;
 
             if (password.Any(c => char.IsNumber(c)))
@@ -132,7 +148,15 @@ namespace Project
 
         }
 
-        
+        private void btn_CreateNewFile_Click(object sender, EventArgs e)
+        {
+            txtBox_serverName.Text = "";
+            txtBox_DBname.Text = "";
+            txtBox_user.Text = "";
+            txtBox_pass.Text = "";
+            txtBox_parameters.Text = $"Creation date: {DateTime.Now.ToString("dd.MM.yyyy")}\r\nClient Company: Example inc\r\nTarget finish date:";
+            
+        }
     }
 
     
