@@ -18,9 +18,12 @@ namespace Project
             InitializeComponent();
         }
 
+        string[] contents;
+        string openedFilePath;
+
         private void btn_saveAs_Click(object sender, EventArgs e)
         {   //container for parameters to be saved
-            string[] contents = new string[] { txtBox_serverName.Text, txtBox_DBname.Text, txtBox_user.Text, txtBox_pass.Text, txtBox_parameters.Text  };
+            contents = new string[] { txtBox_serverName.Text, txtBox_DBname.Text, txtBox_user.Text, txtBox_pass.Text, txtBox_parameters.Text  };
             
             //enabling save file dialog in wich user determins where to save file
 
@@ -40,8 +43,12 @@ namespace Project
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                //remembers file location to be available for "save" button - save changes
+                openedFilePath = Path.GetFullPath(openFileDialog1.FileName);
+
                 //creates a new string array - each line in .txt is an array item
                 string[] loadedLines = File.ReadAllLines(openFileDialog1.FileName);
+
 
                 //populates the following text boxes
                 txtBox_serverName.Text = loadedLines[0];
@@ -53,16 +60,27 @@ namespace Project
 
                 for (int i = 4; i < loadedLines.Length; i++) //adds new line in last textbox for every item from position 4 to the end of the array
                 {
-                    txtBox_parameters.Text = txtBox_parameters.Text + loadedLines[i] + "\r\n";
+                    
+                    txtBox_parameters.Text = txtBox_parameters.Text + loadedLines[i];
+                    if (i < loadedLines.Length - 1)
+                    {
+                        txtBox_parameters.Text = txtBox_parameters.Text + "\r\n";
+                    }
                 }
 
-                 
+                
 
             }
             
 
         }
 
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            contents = new string[] { txtBox_serverName.Text, txtBox_DBname.Text, txtBox_user.Text, txtBox_pass.Text, txtBox_parameters.Text };
+            File.WriteAllLines(openedFilePath, contents);
+            MessageBox.Show("Changes saved");
+        }
 
         ///////////////
         private void txtBox_pass_TextChanged(object sender, EventArgs e)
