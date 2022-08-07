@@ -44,49 +44,55 @@ namespace Project
             this.txtBox_user = new System.Windows.Forms.TextBox();
             this.txtBox_pass = new System.Windows.Forms.TextBox();
             this.txtBox_parameters = new System.Windows.Forms.TextBox();
+            this.lbl_passStrength = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_CreateNewFile
             // 
-            this.btn_CreateNewFile.Location = new System.Drawing.Point(12, 12);
+            this.btn_CreateNewFile.Location = new System.Drawing.Point(16, 15);
+            this.btn_CreateNewFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_CreateNewFile.Name = "btn_CreateNewFile";
-            this.btn_CreateNewFile.Size = new System.Drawing.Size(75, 23);
+            this.btn_CreateNewFile.Size = new System.Drawing.Size(100, 28);
             this.btn_CreateNewFile.TabIndex = 0;
             this.btn_CreateNewFile.Text = "new";
             this.btn_CreateNewFile.UseVisualStyleBackColor = true;
             // 
             // btn_openFile
             // 
-            this.btn_openFile.Location = new System.Drawing.Point(93, 12);
+            this.btn_openFile.Location = new System.Drawing.Point(124, 15);
+            this.btn_openFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_openFile.Name = "btn_openFile";
-            this.btn_openFile.Size = new System.Drawing.Size(75, 23);
+            this.btn_openFile.Size = new System.Drawing.Size(100, 28);
             this.btn_openFile.TabIndex = 1;
             this.btn_openFile.Text = "open";
             this.btn_openFile.UseVisualStyleBackColor = true;
             // 
             // btn_showResent
             // 
-            this.btn_showResent.Location = new System.Drawing.Point(174, 12);
+            this.btn_showResent.Location = new System.Drawing.Point(232, 15);
+            this.btn_showResent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_showResent.Name = "btn_showResent";
-            this.btn_showResent.Size = new System.Drawing.Size(75, 23);
+            this.btn_showResent.Size = new System.Drawing.Size(100, 28);
             this.btn_showResent.TabIndex = 2;
             this.btn_showResent.Text = "resent";
             this.btn_showResent.UseVisualStyleBackColor = true;
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(255, 12);
+            this.btn_save.Location = new System.Drawing.Point(340, 15);
+            this.btn_save.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(75, 23);
+            this.btn_save.Size = new System.Drawing.Size(100, 28);
             this.btn_save.TabIndex = 3;
             this.btn_save.Text = "save";
             this.btn_save.UseVisualStyleBackColor = true;
             // 
             // btn_saveAs
             // 
-            this.btn_saveAs.Location = new System.Drawing.Point(336, 12);
+            this.btn_saveAs.Location = new System.Drawing.Point(448, 15);
+            this.btn_saveAs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_saveAs.Name = "btn_saveAs";
-            this.btn_saveAs.Size = new System.Drawing.Size(75, 23);
+            this.btn_saveAs.Size = new System.Drawing.Size(100, 28);
             this.btn_saveAs.TabIndex = 4;
             this.btn_saveAs.Text = "save as";
             this.btn_saveAs.UseVisualStyleBackColor = true;
@@ -95,90 +101,110 @@ namespace Project
             // lbl_descriptiveLabel_serverName
             // 
             this.lbl_descriptiveLabel_serverName.AutoSize = true;
-            this.lbl_descriptiveLabel_serverName.Location = new System.Drawing.Point(448, 116);
+            this.lbl_descriptiveLabel_serverName.Location = new System.Drawing.Point(597, 143);
+            this.lbl_descriptiveLabel_serverName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_descriptiveLabel_serverName.Name = "lbl_descriptiveLabel_serverName";
-            this.lbl_descriptiveLabel_serverName.Size = new System.Drawing.Size(67, 13);
+            this.lbl_descriptiveLabel_serverName.Size = new System.Drawing.Size(89, 17);
             this.lbl_descriptiveLabel_serverName.TabIndex = 5;
             this.lbl_descriptiveLabel_serverName.Text = "Server name";
             // 
             // lbl_descriptiveLabel_DBname
             // 
             this.lbl_descriptiveLabel_DBname.AutoSize = true;
-            this.lbl_descriptiveLabel_DBname.Location = new System.Drawing.Point(448, 146);
+            this.lbl_descriptiveLabel_DBname.Location = new System.Drawing.Point(597, 180);
+            this.lbl_descriptiveLabel_DBname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_descriptiveLabel_DBname.Name = "lbl_descriptiveLabel_DBname";
-            this.lbl_descriptiveLabel_DBname.Size = new System.Drawing.Size(82, 13);
+            this.lbl_descriptiveLabel_DBname.Size = new System.Drawing.Size(108, 17);
             this.lbl_descriptiveLabel_DBname.TabIndex = 6;
             this.lbl_descriptiveLabel_DBname.Text = "Database name";
             // 
             // lbl_descriptiveLabel_user
             // 
             this.lbl_descriptiveLabel_user.AutoSize = true;
-            this.lbl_descriptiveLabel_user.Location = new System.Drawing.Point(448, 178);
+            this.lbl_descriptiveLabel_user.Location = new System.Drawing.Point(597, 219);
+            this.lbl_descriptiveLabel_user.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_descriptiveLabel_user.Name = "lbl_descriptiveLabel_user";
-            this.lbl_descriptiveLabel_user.Size = new System.Drawing.Size(55, 13);
+            this.lbl_descriptiveLabel_user.Size = new System.Drawing.Size(73, 17);
             this.lbl_descriptiveLabel_user.TabIndex = 7;
             this.lbl_descriptiveLabel_user.Text = "Username";
             // 
             // lbl_descriptiveLabel_pass
             // 
             this.lbl_descriptiveLabel_pass.AutoSize = true;
-            this.lbl_descriptiveLabel_pass.Location = new System.Drawing.Point(448, 211);
+            this.lbl_descriptiveLabel_pass.Location = new System.Drawing.Point(597, 260);
+            this.lbl_descriptiveLabel_pass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_descriptiveLabel_pass.Name = "lbl_descriptiveLabel_pass";
-            this.lbl_descriptiveLabel_pass.Size = new System.Drawing.Size(53, 13);
+            this.lbl_descriptiveLabel_pass.Size = new System.Drawing.Size(69, 17);
             this.lbl_descriptiveLabel_pass.TabIndex = 8;
             this.lbl_descriptiveLabel_pass.Text = "Password";
             // 
             // lbl_descriptiveLabel_parameters
             // 
             this.lbl_descriptiveLabel_parameters.AutoSize = true;
-            this.lbl_descriptiveLabel_parameters.Location = new System.Drawing.Point(448, 242);
+            this.lbl_descriptiveLabel_parameters.Location = new System.Drawing.Point(597, 298);
+            this.lbl_descriptiveLabel_parameters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_descriptiveLabel_parameters.Name = "lbl_descriptiveLabel_parameters";
-            this.lbl_descriptiveLabel_parameters.Size = new System.Drawing.Size(60, 13);
+            this.lbl_descriptiveLabel_parameters.Size = new System.Drawing.Size(81, 17);
             this.lbl_descriptiveLabel_parameters.TabIndex = 9;
             this.lbl_descriptiveLabel_parameters.Text = "Parameters";
             // 
             // txtBox_serverName
             // 
-            this.txtBox_serverName.Location = new System.Drawing.Point(544, 113);
+            this.txtBox_serverName.Location = new System.Drawing.Point(725, 139);
+            this.txtBox_serverName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBox_serverName.Name = "txtBox_serverName";
-            this.txtBox_serverName.Size = new System.Drawing.Size(220, 20);
+            this.txtBox_serverName.Size = new System.Drawing.Size(292, 22);
             this.txtBox_serverName.TabIndex = 10;
             // 
             // txtBox_DBname
             // 
-            this.txtBox_DBname.Location = new System.Drawing.Point(544, 143);
+            this.txtBox_DBname.Location = new System.Drawing.Point(725, 176);
+            this.txtBox_DBname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBox_DBname.Name = "txtBox_DBname";
-            this.txtBox_DBname.Size = new System.Drawing.Size(220, 20);
+            this.txtBox_DBname.Size = new System.Drawing.Size(292, 22);
             this.txtBox_DBname.TabIndex = 11;
             // 
             // txtBox_user
             // 
-            this.txtBox_user.Location = new System.Drawing.Point(544, 175);
+            this.txtBox_user.Location = new System.Drawing.Point(725, 215);
+            this.txtBox_user.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBox_user.Name = "txtBox_user";
-            this.txtBox_user.Size = new System.Drawing.Size(220, 20);
+            this.txtBox_user.Size = new System.Drawing.Size(292, 22);
             this.txtBox_user.TabIndex = 12;
             // 
             // txtBox_pass
             // 
-            this.txtBox_pass.Location = new System.Drawing.Point(544, 208);
+            this.txtBox_pass.Location = new System.Drawing.Point(725, 256);
+            this.txtBox_pass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBox_pass.Name = "txtBox_pass";
-            this.txtBox_pass.Size = new System.Drawing.Size(220, 20);
+            this.txtBox_pass.Size = new System.Drawing.Size(292, 22);
             this.txtBox_pass.TabIndex = 13;
+            this.txtBox_pass.TextChanged += new System.EventHandler(this.txtBox_pass_TextChanged);
             // 
             // txtBox_parameters
             // 
-            this.txtBox_parameters.Location = new System.Drawing.Point(544, 242);
+            this.txtBox_parameters.Location = new System.Drawing.Point(725, 298);
+            this.txtBox_parameters.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBox_parameters.Multiline = true;
             this.txtBox_parameters.Name = "txtBox_parameters";
-            this.txtBox_parameters.Size = new System.Drawing.Size(220, 113);
+            this.txtBox_parameters.Size = new System.Drawing.Size(292, 138);
             this.txtBox_parameters.TabIndex = 14;
             this.txtBox_parameters.Text = "Creation date: today\r\nClient Company: Example inc\r\nTarget finish date:";
             // 
+            // lbl_passStrength
+            // 
+            this.lbl_passStrength.AutoSize = true;
+            this.lbl_passStrength.Location = new System.Drawing.Point(1034, 260);
+            this.lbl_passStrength.Name = "lbl_passStrength";
+            this.lbl_passStrength.Size = new System.Drawing.Size(0, 17);
+            this.lbl_passStrength.TabIndex = 15;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1144, 438);
+            this.ClientSize = new System.Drawing.Size(1525, 539);
+            this.Controls.Add(this.lbl_passStrength);
             this.Controls.Add(this.txtBox_parameters);
             this.Controls.Add(this.txtBox_pass);
             this.Controls.Add(this.txtBox_user);
@@ -194,6 +220,7 @@ namespace Project
             this.Controls.Add(this.btn_showResent);
             this.Controls.Add(this.btn_openFile);
             this.Controls.Add(this.btn_CreateNewFile);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -218,6 +245,7 @@ namespace Project
         private System.Windows.Forms.TextBox txtBox_user;
         private System.Windows.Forms.TextBox txtBox_pass;
         private System.Windows.Forms.TextBox txtBox_parameters;
+        private System.Windows.Forms.Label lbl_passStrength;
     }
 }
 

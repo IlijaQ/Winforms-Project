@@ -31,5 +31,56 @@ namespace Project
                 File.WriteAllLines(Path.GetFullPath(saveFileDialog1.FileName), contents);
             }
         }
+
+        private void txtBox_pass_TextChanged(object sender, EventArgs e)
+        {
+            lbl_passStrength.Text = CheckPassword(txtBox_pass.Text);
+        }
+
+        public static string CheckPassword(string password)
+        {
+
+            int strength = 0;
+
+            if (password.Any(c => char.IsNumber(c)))
+            {
+                strength++;
+            }
+            if (password.Any(c => char.IsUpper(c)))
+            {
+                strength++;
+            }
+            if (password.Any(c => char.IsLower(c)))
+            {
+                strength++;
+            }
+            if (password.Any(c => !char.IsLetter(c) && !char.IsNumber(c)))
+            {
+                strength++;
+            }
+            if (password.Length > 7)
+            {
+                strength++;
+            }
+            if ((password == "pass") || (password == "password") || (password == "12345"))
+            {
+                strength = 0;
+            }
+
+            switch (strength)
+            {
+                case 0: return "your password is poor"; break;
+                case 1: return "your password is bad strength"; break;
+                case 2: return "your password is low strength"; break;
+                case 3: return "your password is medium strength"; break;
+                case 4: return "your password is strong"; break;
+                case 5: return "your password is very strong"; break;
+                default: return ""; break;
+            }
+
+        }
+
     }
+
+    
 }
