@@ -16,7 +16,11 @@ namespace Project
         public Form1()
         {
             InitializeComponent();
+
+            txtBox_parameters.Text = $"Creation date: {DateTime.Now.ToString("dd.MM.yyyy")}\r\nClient Company:\r\nTarget finish date:";
+
         }
+
 
         string[] contents;
         string openedFilePath;
@@ -98,6 +102,20 @@ namespace Project
             else
             {
                 lbl_passStrength.Text = CheckPassword(txtBox_pass.Text);
+
+                //Changes the color of the suggestive password strength label accordingly
+                if(lbl_passStrength.Text.Contains("poor") || lbl_passStrength.Text.Contains("bad") || lbl_passStrength.Text.Contains("low"))
+                {
+                    lbl_passStrength.ForeColor = Color.Red;
+                }
+                if (lbl_passStrength.Text.Contains("medium"))
+                {
+                    lbl_passStrength.ForeColor = Color.Black;
+                }
+                if (lbl_passStrength.Text.Contains("strong"))
+                {
+                    lbl_passStrength.ForeColor = Color.Green;
+                }
             }
             
         }
@@ -137,12 +155,12 @@ namespace Project
 
             switch (strength)
             {   //suggestive messages for user, depending on current password strength
-                case 0: return "your password is poor"; break;
+                case 0: return "your password is poor strength"; break;
                 case 1: return "your password is bad strength"; break;
                 case 2: return "your password is low strength"; break;
                 case 3: return "your password is medium strength"; break;
                 case 4: return "your password is strong"; break;
-                case 5: return "your password is very strong"; break;
+                case 5: return "your password is very strong";break;
                 default: return ""; break;
             }
 
@@ -154,7 +172,7 @@ namespace Project
             txtBox_DBname.Text = "";
             txtBox_user.Text = "";
             txtBox_pass.Text = "";
-            txtBox_parameters.Text = $"Creation date: {DateTime.Now.ToString("dd.MM.yyyy")}\r\nClient Company: Example inc\r\nTarget finish date:";
+            txtBox_parameters.Text = $"Creation date: {DateTime.Now.ToString("dd.MM.yyyy")}\r\nClient Company:\r\nTarget finish date:";
             
         }
     }
