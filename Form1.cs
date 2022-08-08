@@ -19,12 +19,11 @@ namespace Project
 
             SetDefaultValues();
 
+
+
         }
 
-
         string openedFilePath;
-
-        
 
         private void btn_saveAs_Click(object sender, EventArgs e)
         {
@@ -47,9 +46,28 @@ namespace Project
 
                 File.WriteAllLines(Path.GetFullPath(saveFileDialog1.FileName), contents); //saves file where each array member - parametar is saved in serate line in .txt file
                 openedFilePath = Path.GetFullPath(saveFileDialog1.FileName);
-                MessageBox.Show("Project saved");                
+
+                AddCurrentProjToRecentList();
+
+                MessageBox.Show("Project saved");
             }
-            
+
+        }
+
+        private void AddCurrentProjToRecentList()
+        {
+            string[] recentFilesList = File.ReadAllLines("recentFilesLog.txt");
+
+            for (int i = (int)numBox_numOfResentProjects.Value - 2; i >= 0 ; i--)
+            {
+                recentFilesList[i + 1] = recentFilesList[i];
+            }
+            recentFilesList[0] = openedFilePath;
+
+            File.WriteAllLines("recentFilesLog.txt", recentFilesList);
+
+            listBox_recentProj.Items.Clear();
+            listBox_recentProj.Items.AddRange(recentFilesList);
         }
 
         private void btn_openFile_Click(object sender, EventArgs e)
@@ -65,9 +83,9 @@ namespace Project
 
                 PopulateUiFromLoadeFile(loadedLines);
 
+                AddCurrentProjToRecentList();
+
             }
-
-
         }
 
         private void PopulateUiFromLoadeFile(string[] loadedLines)
@@ -199,6 +217,16 @@ namespace Project
             File.WriteAllLines("DefaultValues.txt", contents); //saves deault values
             
             MessageBox.Show("Default values set");
+        }
+
+        private void numBox_numOfResentProjects_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_showResent_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
