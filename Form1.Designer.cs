@@ -56,7 +56,7 @@ namespace Project
             // btn_CreateNewFile
             // 
             this.btn_CreateNewFile.Location = new System.Drawing.Point(16, 15);
-            this.btn_CreateNewFile.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_CreateNewFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_CreateNewFile.Name = "btn_CreateNewFile";
             this.btn_CreateNewFile.Size = new System.Drawing.Size(100, 28);
             this.btn_CreateNewFile.TabIndex = 0;
@@ -67,7 +67,7 @@ namespace Project
             // btn_openFile
             // 
             this.btn_openFile.Location = new System.Drawing.Point(124, 15);
-            this.btn_openFile.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_openFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_openFile.Name = "btn_openFile";
             this.btn_openFile.Size = new System.Drawing.Size(100, 28);
             this.btn_openFile.TabIndex = 1;
@@ -78,7 +78,7 @@ namespace Project
             // btn_showResent
             // 
             this.btn_showResent.Location = new System.Drawing.Point(232, 453);
-            this.btn_showResent.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_showResent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_showResent.Name = "btn_showResent";
             this.btn_showResent.Size = new System.Drawing.Size(220, 28);
             this.btn_showResent.TabIndex = 2;
@@ -89,7 +89,7 @@ namespace Project
             // btn_save
             // 
             this.btn_save.Location = new System.Drawing.Point(232, 15);
-            this.btn_save.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_save.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(100, 28);
             this.btn_save.TabIndex = 3;
@@ -100,7 +100,7 @@ namespace Project
             // btn_saveAs
             // 
             this.btn_saveAs.Location = new System.Drawing.Point(340, 15);
-            this.btn_saveAs.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_saveAs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_saveAs.Name = "btn_saveAs";
             this.btn_saveAs.Size = new System.Drawing.Size(100, 28);
             this.btn_saveAs.TabIndex = 4;
@@ -161,7 +161,7 @@ namespace Project
             // txtBox_serverName
             // 
             this.txtBox_serverName.Location = new System.Drawing.Point(725, 139);
-            this.txtBox_serverName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBox_serverName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBox_serverName.Name = "txtBox_serverName";
             this.txtBox_serverName.Size = new System.Drawing.Size(292, 22);
             this.txtBox_serverName.TabIndex = 10;
@@ -169,7 +169,7 @@ namespace Project
             // txtBox_DBname
             // 
             this.txtBox_DBname.Location = new System.Drawing.Point(725, 176);
-            this.txtBox_DBname.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBox_DBname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBox_DBname.Name = "txtBox_DBname";
             this.txtBox_DBname.Size = new System.Drawing.Size(292, 22);
             this.txtBox_DBname.TabIndex = 11;
@@ -177,7 +177,7 @@ namespace Project
             // txtBox_user
             // 
             this.txtBox_user.Location = new System.Drawing.Point(725, 215);
-            this.txtBox_user.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBox_user.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBox_user.Name = "txtBox_user";
             this.txtBox_user.Size = new System.Drawing.Size(292, 22);
             this.txtBox_user.TabIndex = 12;
@@ -185,7 +185,7 @@ namespace Project
             // txtBox_pass
             // 
             this.txtBox_pass.Location = new System.Drawing.Point(725, 256);
-            this.txtBox_pass.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBox_pass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBox_pass.Name = "txtBox_pass";
             this.txtBox_pass.Size = new System.Drawing.Size(292, 22);
             this.txtBox_pass.TabIndex = 13;
@@ -194,7 +194,7 @@ namespace Project
             // txtBox_parameters
             // 
             this.txtBox_parameters.Location = new System.Drawing.Point(725, 298);
-            this.txtBox_parameters.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBox_parameters.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBox_parameters.Multiline = true;
             this.txtBox_parameters.Name = "txtBox_parameters";
             this.txtBox_parameters.Size = new System.Drawing.Size(292, 138);
@@ -203,7 +203,7 @@ namespace Project
             // lbl_passStrength
             // 
             this.lbl_passStrength.AutoSize = true;
-            this.lbl_passStrength.Location = new System.Drawing.Point(1034, 260);
+            this.lbl_passStrength.Location = new System.Drawing.Point(1035, 260);
             this.lbl_passStrength.Name = "lbl_passStrength";
             this.lbl_passStrength.Size = new System.Drawing.Size(0, 17);
             this.lbl_passStrength.TabIndex = 15;
@@ -211,8 +211,9 @@ namespace Project
             // btn_setDefaultVal
             // 
             this.btn_setDefaultVal.Location = new System.Drawing.Point(447, 15);
+            this.btn_setDefaultVal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_setDefaultVal.Name = "btn_setDefaultVal";
-            this.btn_setDefaultVal.Size = new System.Drawing.Size(150, 28);
+            this.btn_setDefaultVal.Size = new System.Drawing.Size(149, 28);
             this.btn_setDefaultVal.TabIndex = 16;
             this.btn_setDefaultVal.Text = "set default values";
             this.btn_setDefaultVal.UseVisualStyleBackColor = true;
@@ -221,6 +222,7 @@ namespace Project
             // numBox_numOfResentProjects
             // 
             this.numBox_numOfResentProjects.Location = new System.Drawing.Point(352, 98);
+            this.numBox_numOfResentProjects.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numBox_numOfResentProjects.Maximum = new decimal(new int[] {
             10,
             0,
@@ -244,7 +246,7 @@ namespace Project
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(230, 86);
+            this.label1.Location = new System.Drawing.Point(229, 86);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 34);
             this.label1.TabIndex = 18;
@@ -255,6 +257,7 @@ namespace Project
             this.listBox_recentProj.FormattingEnabled = true;
             this.listBox_recentProj.ItemHeight = 16;
             this.listBox_recentProj.Location = new System.Drawing.Point(232, 176);
+            this.listBox_recentProj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox_recentProj.Name = "listBox_recentProj";
             this.listBox_recentProj.Size = new System.Drawing.Size(220, 260);
             this.listBox_recentProj.TabIndex = 19;
@@ -264,7 +267,7 @@ namespace Project
             this.lbl_descriptiveLabel_resent.AutoSize = true;
             this.lbl_descriptiveLabel_resent.Location = new System.Drawing.Point(232, 143);
             this.lbl_descriptiveLabel_resent.Name = "lbl_descriptiveLabel_resent";
-            this.lbl_descriptiveLabel_resent.Size = new System.Drawing.Size(135, 21);
+            this.lbl_descriptiveLabel_resent.Size = new System.Drawing.Size(108, 17);
             this.lbl_descriptiveLabel_resent.TabIndex = 20;
             this.lbl_descriptiveLabel_resent.Text = "Recent Projects";
             // 
@@ -272,7 +275,7 @@ namespace Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1220, 431);
+            this.ClientSize = new System.Drawing.Size(1327, 523);
             this.Controls.Add(this.lbl_descriptiveLabel_resent);
             this.Controls.Add(this.listBox_recentProj);
             this.Controls.Add(this.label1);
@@ -294,7 +297,7 @@ namespace Project
             this.Controls.Add(this.btn_showResent);
             this.Controls.Add(this.btn_openFile);
             this.Controls.Add(this.btn_CreateNewFile);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.numBox_numOfResentProjects)).EndInit();

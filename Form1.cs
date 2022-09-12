@@ -19,8 +19,22 @@ namespace Project
 
             SetDefaultValues();
 
+            ReloadRecentList();
 
+            //update number of recents
 
+            string[] lines = File.ReadAllLines("numberOfRecents.txt");
+            int numberOfRecents = int.Parse(lines[0]);
+            numBox_numOfResentProjects.Value = numberOfRecents;
+
+            
+        }
+
+        private void ReloadRecentList()
+        {
+            listBox_recentProj.Items.Clear();
+            string[] recentFilesList = File.ReadAllLines("recentFilesLog.txt");
+            listBox_recentProj.Items.AddRange(recentFilesList);
         }
 
         string openedFilePath;
@@ -66,8 +80,7 @@ namespace Project
 
             File.WriteAllLines("recentFilesLog.txt", recentFilesList);
 
-            listBox_recentProj.Items.Clear();
-            listBox_recentProj.Items.AddRange(recentFilesList);
+            ReloadRecentList();
         }
 
         private void btn_openFile_Click(object sender, EventArgs e)
@@ -75,17 +88,24 @@ namespace Project
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                //remembers file location to be available for "save" button - save changes
-                openedFilePath = Path.GetFullPath(openFileDialog1.FileName);
+                OpenProject(Path.GetFullPath(openFileDialog1.FileName));
+            }
+        }
 
-                //creates a new string array - each line in .txt is an array item
-                string[] loadedLines = File.ReadAllLines(openFileDialog1.FileName);
+        private void OpenProject(string filePath)
+        {
+            if(filePath != "--" && !string.IsNullOrEmpty(filePath))
+            {
+                //remembers file location to be available for "save" button - save changes
+                openedFilePath = Path.GetFullPath(filePath);
+
+                string[] loadedLines = File.ReadAllLines(filePath);
 
                 PopulateUiFromLoadeFile(loadedLines);
 
                 AddCurrentProjToRecentList();
-
             }
+            
         }
 
         private void PopulateUiFromLoadeFile(string[] loadedLines)
@@ -216,18 +236,58 @@ namespace Project
             string[] contents = new string[] { txtBox_serverName.Text, txtBox_DBname.Text, txtBox_user.Text, txtBox_pass.Text, txtBox_parameters.Text };
             File.WriteAllLines("DefaultValues.txt", contents); //saves deault values
             
+
             MessageBox.Show("Default values set");
         }
 
         private void numBox_numOfResentProjects_ValueChanged(object sender, EventArgs e)
         {
+            string[] recentFilesArray = File.ReadAllLines("recentFilesLog.txt");
+            
+            List<string> recentFilesList = new List<string>();
+            recentFilesList.AddRange(recentFilesArray);
 
+            List<string> updatedRecentFilesList;
+
+            if ((int)numBox_numOfResentProjects.Value > recentFilesList.Count)
+            {
+                int numberOfNewRows = (int)numBox_numOfResentProjects.Value - recentFilesList.Count;
+
+                //adding more recents
+                updatedRecentFilesList = recentFilesList;
+                
+                for(int i =0;i< numberOfNewRows;i++)
+                {
+                    updatedRecentFilesList.Add("--");
+                }
+            }
+            else
+            {
+                //shrink number of recent
+                updatedRecentFilesList = recentFilesList.GetRange(0, (int)numBox_numOfResentProjects.Value);
+            }
+
+            
+
+            string[] array = new string[1];
+            array[0] = Convert.ToString((int)numBox_numOfResentProjects.Value);
+
+
+            File.WriteAllLines(Path.GetFullPath("recentFilesLog.txt"), updatedRecentFilesList);
+            File.WriteAllLines("numberOfRecents.txt", array);
+
+            ReloadRecentList();
         }
 
         private void btn_showResent_Click(object sender, EventArgs e)
         {
-
+            OpenProject((string)listBox_recentProj.SelectedItem);
         }
+
+
+
+
+
     }
 
     
